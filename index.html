@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochammad Naufal // Cosmic Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Space Grotesk (Modern Tech), Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Indikator Scroll Beam di Paling Atas -->
+    <div id="scroll-progress"></div>
+
+    <!-- Canvas Partikel Bintang 3D & Nebula Antariksa -->
+    <canvas id="space-canvas"></canvas>
+
+    <!-- Kursor Cahaya Interaktif Nebula -->
+    <div id="cursor-glow"></div>
+
+    <!-- FLOATING CAPSULE NAVBAR (MODERN GLASS HUD) -->
+    <header class="navbar-wrapper">
+        <nav class="navbar-pill">
+            <a href="#beranda" class="nav-brand">
+                <div class="planet-badge">
+                    <span class="planet-core"></span>
+                    <span class="planet-ring"></span>
+                </div>
+                <div class="brand-info">
+                    <span class="brand-title">NAUFAL</span>
+                    <span class="brand-tag">DEV.06</span>
+                </div>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="#beranda" class="nav-item active">Orbit</a></li>
+                <li><a href="#tentang" class="nav-item">Biodata</a></li>
+                <li><a href="#pendidikan" class="nav-item">Edukasi</a></li>
+                <li><a href="#kemampuan" class="nav-item">Kemampuan</a></li>
+                <li><a href="#projek" class="nav-item">Projek</a></li>
+                <li><a href="#kontak" class="nav-item nav-btn">Kontak 🛸</a></li>
+            </ul>
+
+            <!-- Tombol Audio Kosmik Synthesizer -->
+            <button id="audio-toggle" class="btn-audio-pill" title="Aktifkan Suara Galaksi">
+                <span class="audio-dot"></span>
+                <span class="audio-label">AUDIO: OFF</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION // AMBIENT SPACE -->
+        <section id="beranda" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-info">
+                    <div class="pill-badge">
+                        <span class="beacon-pulse"></span>
+                        <span>TERSEDIA UNTUK MISI DIGITAL & EXPLORASI WEB</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Membangun Masa Depan <br>
+                        di Antara <span class="gradient-cosmic">Bintang & Kode</span>.
+                    </h1>
+
+                    <div class="typewriter-box">
+                        <span class="cmd-prompt">&gt;_</span>
+                        <span id="typewriter" class="typewriter-content"></span>
+                        <span class="cursor-bar">|</span>
+                    </div>
+
+                    <p class="hero-summary">
+                        Halo! Saya <strong>Mochammad Naufal Az-Zauhari</strong>, siswa Rekayasa Perangkat Lunak (RPL) di <strong>SMK Negeri 1 Pasuruan</strong>. Menjelajahi antariksa teknologi melalui kode bersih, desain futuristik, dan interaktivitas tingkat lanjut.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#projek" class="btn-stellar btn-primary">
+                            <span>Jelajahi Projek 🚀</span>
+                        </a>
+                        <a href="#kontak" class="btn-stellar btn-glass">
+                            <span>Kirim Transmisi 📡</span>
+                        </a>
+                    </div>
+
+                    <!-- Telemetri Counter -->
+                    <div class="telemetry-deck">
+                        <div class="telemetry-box">
+                            <span class="telemetry-num" data-target="100">0</span><span class="telemetry-suffix">%</span>
+                            <span class="telemetry-caption">Fokus & Dedikasi</span>
+                        </div>
+                        <div class="telemetry-box">
+                            <span class="telemetry-num" data-target="4">0</span><span class="telemetry-suffix">+</span>
+                            <span class="telemetry-caption">Misi Projek Selesai</span>
+                        </div>
+                        <div class="telemetry-box">
+                            <span class="telemetry-num" data-target="999">0</span><span class="telemetry-suffix">+</span>
+                            <span class="telemetry-caption">Baris Kode Dibuat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual 3D Hologram Avatar Orbit -->
+                <div class="hero-graphics">
+                    <div class="hologram-stage" id="hologram-stage">
+                        <div class="nebula-halo"></div>
+                        <div class="orbit-path orbit-1"></div>
+                        <div class="orbit-path orbit-2"></div>
+                        <div class="orbit-path orbit-3"></div>
+
+                        <div class="floating-celestial planet-saturn">🪐</div>
+                        <div class="floating-celestial planet-star">✨</div>
+                        <div class="floating-celestial planet-rocket">🛸</div>
+
+                        <div class="avatar-capsule">
+                            <div class="avatar-ring-pulse"></div>
+                            <span class="astronaut-icon">👨‍🚀</span>
+                            <span class="pilot-badge">PILOT: NAUFAL</span>
+                        </div>
+
+                        <div class="hud-tag-float">
+                            <span class="status-indicator"></span>
+                            <span>STATUS: ORBITAL 100% OPTIMAL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. BIODATA // MODERN BENTO GRID -->
+        <section id="tentang" class="section">
+            <div class="container">
+                <div class="section-heading-area">
+                    <span class="heading-tag">// 01. DATA PRIBADI //</span>
+                    <h2 class="heading-title">Perkenalan & Spesifikasi Awak</h2>
+                    <p class="heading-sub">Informasi seputar identitas penjelajah di stasiun bumi.</p>
+                </div>
+
+                <!-- BENTO GRID MODERN -->
+                <div class="bento-grid">
+                    <!-- Bento 1: Profil Utama -->
+                    <div class="bento-card bento-hero spotlight-card">
+                        <div class="bento-badge">PILOT PROFILE</div>
+                        <h3>Mochammad Naufal Az-Zauhari</h3>
+                        <p>
+                            Seorang pembelajar coding muda yang antusias, lahir pada <strong>12 Mei 2010</strong> di Pasuruan. Memulai eksplorasi pemrograman web dari nol hingga kini terbiasa membangun antarmuka web interaktif yang modern dan responsif.
+                        </p>
+                        <div class="quote-cosmic">
+                            <p>“Bintang tidak pernah takut gelap untuk bersinar. Setiap bug dan tantangan adalah langkah menuju kode yang sempurna.”</p>
+                        </div>
+                    </div>
+
+                    <!-- Bento 2: Status & Lokasi -->
+                    <div class="bento-card bento-small spotlight-card">
+                        <div class="bento-badge">LOKASI & KOORDINAT</div>
+                        <div class="bento-icon-lg">📍</div>
+                        <h4>Pasuruan, Jawa Timur</h4>
+                        <p class="text-dim">Pusat Operasional Stasiun Bumi</p>
+                    </div>
+
+                    <!-- Bento 3: Institusi -->
+                    <div class="bento-card bento-small spotlight-card">
+                        <div class="bento-badge">STASIUN AKADEMIK</div>
+                        <div class="bento-icon-lg">🎓</div>
+                        <h4>SMK Negeri 1 Pasuruan</h4>
+                        <p class="text-cyan">Rekayasa Perangkat Lunak (RPL)</p>
+                    </div>
+
+                    <!-- Bento 4: Minat & Spesialisasi -->
+                    <div class="bento-card bento-wide spotlight-card">
+                        <div class="bento-badge">BIDANG MINAT & EKSPLORASI</div>
+                        <div class="interest-tags">
+                            <span class="tag-pill">🚀 Frontend Web Development</span>
+                            <span class="tag-pill">🎨 Modern UI/UX Engineering</span>
+                            <span class="tag-pill">⚡ Animasi & Interaktivitas JS</span>
+                            <span class="tag-pill">📱 Desain Responsif Mobile-First</span>
+                            <span class="tag-pill">🎮 Logika & Algoritma Dasar</span>
+                        </div>
+                    </div>
+
+                    <!-- Bento 5: Kontak Cepat -->
+                    <div class="bento-card bento-medium spotlight-card">
+                        <div class="bento-badge">FREKUENSI RESMI</div>
+                        <ul class="spec-links">
+                            <li><span>Email:</span> <a href="mailto:naufalazzauhari00@gmail.com">naufalazzauhari00@gmail.com</a></li>
+                            <li><span>Instagram:</span> <a href="https://instagram.com" target="_blank">@naufal_az_zauhari</a></li>
+                            <li><span>Status:</span> <span class="text-green">● Aktif Belajar & Terbuka</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. RIWAYAT MISI PENDIDIKAN (LASER BEAM TIMELINE) -->
+        <section id="pendidikan" class="section">
+            <div class="container">
+                <div class="section-heading-area">
+                    <span class="heading-tag">// 02. MISI EDUKASI //</span>
+                    <h2 class="heading-title">Riwayat Pendidikan</h2>
+                    <p class="heading-sub">Trajektori perjalanan menuntut ilmu dari awal hingga saat ini.</p>
+                </div>
+
+                <div class="laser-timeline">
+                    <!-- Misi 1: TK -->
+                    <div class="laser-station spotlight-card">
+                        <div class="laser-node">
+                            <div class="node-ring"></div>
+                            <span>01</span>
+                        </div>
+                        <div class="laser-content">
+                            <div class="content-header">
+                                <span class="content-year">2015 — 2017</span>
+                                <span class="content-badge">Inisiasi Awal</span>
+                            </div>
+                            <h3>TK - RA Perwanida 2</h3>
+                            <p>Masa pembentukan karakter awal, melatih rasa ingin tahu yang tinggi, serta adaptasi bersosialisasi dan berimajinasi.</p>
+                        </div>
+                    </div>
+
+                    <!-- Misi 2: SD -->
+                    <div class="laser-station spotlight-card">
+                        <div class="laser-node">
+                            <div class="node-ring"></div>
+                            <span>02</span>
+                        </div>
+                        <div class="laser-content">
+                            <div class="content-header">
+                                <span class="content-year">2017 — 2023</span>
+                                <span class="content-badge">Fondasi Dasar</span>
+                            </div>
+                            <h3>MIN 2 Kota Pasuruan</h3>
+                            <p>Membangun fondasi logika berpikir, sains, disiplin akademik, serta mulai mengenal dasar-dasar perangkat komputer.</p>
+                        </div>
+                    </div>
+
+                    <!-- Misi 3: SMP -->
+                    <div class="laser-station spotlight-card">
+                        <div class="laser-node">
+                            <div class="node-ring"></div>
+                            <span>03</span>
+                        </div>
+                        <div class="laser-content">
+                            <div class="content-header">
+                                <span class="content-year">2023 — 2026</span>
+                                <span class="content-badge">Eksplorasi Minat</span>
+                            </div>
+                            <h3>SMP Negeri 5 Pasuruan</h3>
+                            <p>Masa pendalaman ketertarikan pada bidang teknologi digital, matematika, dan penemuan awal ketertarikan pada dunia web coding.</p>
+                        </div>
+                    </div>
+
+                    <!-- Misi 4: SMK -->
+                    <div class="laser-station station-active spotlight-card">
+                        <div class="laser-node node-active">
+                            <div class="node-ring pulse-fast"></div>
+                            <span>04</span>
+                        </div>
+                        <div class="laser-content content-active">
+                            <div class="content-header">
+                                <span class="content-year year-active">2026 — SEKARANG</span>
+                                <span class="content-badge badge-active">Stasiun Aktif Saat Ini</span>
+                            </div>
+                            <h3>SMK Negeri 1 Pasuruan</h3>
+                            <p>Jurusan <strong>Rekayasa Perangkat Lunak (RPL)</strong>. Fokus mendalami HTML5 modern, CSS3 animasi, JavaScript interaktif, arsitektur website, dan pengembangan perangkat lunak.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. KEMAMPUAN / ARSENAL SKILL -->
+        <section id="kemampuan" class="section">
+            <div class="container">
+                <div class="section-heading-area">
+                    <span class="heading-tag">// 03. ARSENAL KEMAMPUAN //</span>
+                    <h2 class="heading-title">Keahlian & Teknologi</h2>
+                    <p class="heading-sub">Komponen propulsi dan senjata utama dalam membangun aplikasi web.</p>
+                </div>
+
+                <div class="arsenal-grid">
+                    <!-- Skill 1 -->
+                    <div class="arsenal-card spotlight-card">
+                        <div class="card-top">
+                            <div class="icon-wrap icon-cyan">🌐</div>
+                            <span class="card-level">92%</span>
+                        </div>
+                        <h4>HTML5 Semantik</h4>
+                        <p>Struktur halaman web yang rapi, aksesibel, SEO-friendly, dan berstandar HTML5 modern.</p>
+                        <div class="track-bar">
+                            <div class="track-fill fill-cyan" style="width: 92%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 2 -->
+                    <div class="arsenal-card spotlight-card">
+                        <div class="card-top">
+                            <div class="icon-wrap icon-purple">🎨</div>
+                            <span class="card-level">88%</span>
+                        </div>
+                        <h4>CSS3 & Animasi Modern</h4>
+                        <p>Flexbox, CSS Grid, Glassmorphism, Keyframes neon, dan efek hover transisi tingkat lanjut.</p>
+                        <div class="track-bar">
+                            <div class="track-fill fill-purple" style="width: 88%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 3 -->
+                    <div class="arsenal-card spotlight-card">
+                        <div class="card-top">
+                            <div class="icon-wrap icon-yellow">⚡</div>
+                            <span class="card-level">84%</span>
+                        </div>
+                        <h4>JavaScript Interaktif</h4>
+                        <p>Manipulasi DOM, Event Listener, Canvas 2D partikel, Web Audio API, dan penyimpanan LocalStorage.</p>
+                        <div class="track-bar">
+                            <div class="track-fill fill-yellow" style="width: 84%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 4 -->
+                    <div class="arsenal-card spotlight-card">
+                        <div class="card-top">
+                            <div class="icon-wrap icon-cyan">📱</div>
+                            <span class="card-level">86%</span>
+                        </div>
+                        <h4>Desain Responsif</h4>
+                        <p>Optimasi layout agar web tampil sempurna di layar Smartphone, Tablet, hingga Monitor Desktop.</p>
+                        <div class="track-bar">
+                            <div class="track-fill fill-cyan" style="width: 86%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 5 -->
+                    <div class="arsenal-card spotlight-card">
+                        <div class="card-top">
+                            <div class="icon-wrap icon-purple">🌓</div>
+                            <span class="card-level">88%</span>
+                        </div>
+                        <h4>Dual-Theme Architecture</h4>
+                        <p>Penerapan CSS Custom Properties untuk sistem Dark Mode & Light Mode yang mulus tanpa kedip.</p>
+                        <div class="track-bar">
+                            <div class="track-fill fill-purple" style="width: 88%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 6 -->
+                    <div class="arsenal-card spotlight-card">
+                        <div class="card-top">
+                            <div class="icon-wrap icon-green">🧩</div>
+                            <span class="card-level">82%</span>
+                        </div>
+                        <h4>Problem Solving & Debugging</h4>
+                        <p>Menganalisis kesalahan kode, membaca console browser, dan optimasi performa render web.</p>
+                        <div class="track-bar">
+                            <div class="track-fill fill-green" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. HASIL PEKERJAAN / PROJEK (MISSION ARCHIVES) -->
+        <section id="projek" class="section">
+            <div class="container">
+                <div class="section-heading-area">
+                    <span class="heading-tag">// 04. ARSIP HASIL PEKERJAAN //</span>
+                    <h2 class="heading-title">Koleksi Projek & Portofolio</h2>
+                    <p class="heading-sub">Eksplorasi karya-karya web yang telah berhasil dikembangkan.</p>
+                </div>
+
+                <!-- Filter Kategori -->
+                <div class="filter-pills-bar">
+                    <button class="filter-pill active" data-filter="all">Semua Sektor</button>
+                    <button class="filter-pill" data-filter="web">Web Portofolio</button>
+                    <button class="filter-pill" data-filter="community">Web Komunitas</button>
+                    <button class="filter-pill" data-filter="interactive">Interaktif & JS</button>
+                </div>
+
+                <div class="showcase-grid">
+                    <!-- Project 1 -->
+                    <div class="showcase-card spotlight-card" data-category="web">
+                        <div class="showcase-header">
+                            <div class="card-glow-bg bg-neon-purple"></div>
+                            <span class="showcase-icon">🌌</span>
+                            <span class="badge-code">PROJEK 01</span>
+                        </div>
+                        <div class="showcase-body">
+                            <div class="tags-row">
+                                <span>HTML5</span>
+                                <span>CSS3 Keyframes</span>
+                                <span>Neon Tree View</span>
+                            </div>
+                            <h3>Cyberpunk Neon Biodata</h3>
+                            <p>Website biodata estetika neon cyberpunk gelap dengan animasi cahaya permanen dan hierarki tree view.</p>
+                            <button class="btn-inspect" data-modal="proj1">Buka Log Misi ↗</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="showcase-card spotlight-card" data-category="community">
+                        <div class="showcase-header">
+                            <div class="card-glow-bg bg-neon-green"></div>
+                            <span class="showcase-icon">🏘️</span>
+                            <span class="badge-code">PROJEK 02</span>
+                        </div>
+                        <div class="showcase-body">
+                            <div class="tags-row">
+                                <span>Light Theme</span>
+                                <span>Organisasi</span>
+                                <span>Responsive</span>
+                            </div>
+                            <h3>Portal Warga RT 04 Sukamaju</h3>
+                            <p>Platform organisasi kampung bertema terang segar dengan data pengurus RT, Karang Taruna, dan progress proker.</p>
+                            <button class="btn-inspect" data-modal="proj2">Buka Log Misi ↗</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="showcase-card spotlight-card" data-category="interactive">
+                        <div class="showcase-header">
+                            <div class="card-glow-bg bg-neon-cyan"></div>
+                            <span class="showcase-icon">🌓</span>
+                            <span class="badge-code">PROJEK 03</span>
+                        </div>
+                        <div class="showcase-body">
+                            <div class="tags-row">
+                                <span>JavaScript DOM</span>
+                                <span>LocalStorage</span>
+                                <span>Flexbox</span>
+                            </div>
+                            <h3>Dual-Theme Switcher Engine</h3>
+                            <p>Sistem pengubah tema gelap dan terang dinamis berbasis JavaScript dengan memori browser dan layout kartu flex.</p>
+                            <button class="btn-inspect" data-modal="proj3">Buka Log Misi ↗</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="showcase-card spotlight-card" data-category="interactive">
+                        <div class="showcase-header">
+                            <div class="card-glow-bg bg-neon-gold"></div>
+                            <span class="showcase-icon">🛸</span>
+                            <span class="badge-code">PROJEK 04 // ULTIMATE</span>
+                        </div>
+                        <div class="showcase-body">
+                            <div class="tags-row">
+                                <span>Canvas API</span>
+                                <span>Web Audio Synth</span>
+                                <span>Cosmic Theme</span>
+                            </div>
+                            <h3>Cosmic Odyssey Portfolio</h3>
+                            <p>Website portofolio galaksi dengan latar bintang 3D interaktif canvas, efek audio kosmik murni, dan Bento Grid HUD.</p>
+                            <button class="btn-inspect" data-modal="proj4">Buka Log Misi ↗</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TERMINAL TRANSMISI / KONTAK -->
+        <section id="kontak" class="section">
+            <div class="container">
+                <div class="section-heading-area">
+                    <span class="heading-tag">// 05. JALUR KOMUNIKASI //</span>
+                    <h2 class="heading-title">Kirim Sinyal Transmisi</h2>
+                    <p class="heading-sub">Hubungi saya untuk kolaborasi proyek, diskusi web, atau sekadar menyapa.</p>
+                </div>
+
+                <div class="terminal-deck-wrap">
+                    <div class="sci-fi-terminal spotlight-card">
+                        <div class="terminal-bar-top">
+                            <div class="traffic-lights">
+                                <span class="light red"></span>
+                                <span class="light yellow"></span>
+                                <span class="light green"></span>
+                            </div>
+                            <span class="terminal-tab">TERMINAL // FREQUENCY_CH-26.0</span>
+                            <span class="signal-tag">● LINK OPERATIONAL</span>
+                        </div>
+
+                        <div class="terminal-inner">
+                            <div class="terminal-prompt-lines">
+                                <p class="prompt-text">&gt; MEMULAI PROTOKOL KOMUNIKASI ANTAR-BINTANG...</p>
+                                <p class="prompt-text">&gt; TERHUBUNG KE STASIUN BUMI PASURUAN [OK]</p>
+                                <p class="prompt-text text-cyan">&gt; SILAKAN MASUKKAN PESAN TELEMETRI ANDA:</p>
+                            </div>
+
+                            <form id="cosmic-form" class="cosmic-terminal-form">
+                                <div class="form-grid">
+                                    <div class="form-cell">
+                                        <label for="caller-name">IDENTITAS ANDA (NAMA):</label>
+                                        <input type="text" id="caller-name" placeholder="MOCHAMMAD NAUFAL AZ-ZAUHARI" required>
+                                    </div>
+                                    <div class="form-cell">
+                                        <label for="caller-freq">FREKUENSI BALASAN (EMAIL/WA):</label>
+                                        <input type="text" id="caller-freq" placeholder="naufalazzauhari00@gmail.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-cell">
+                                    <label for="caller-msg">PESAN TELEMETRI:</label>
+                                    <textarea id="caller-msg" rows="4" placeholder="Tuliskan pesan atau ajakan kolaborasi di sini..." required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn-stellar btn-transmit" id="btn-transmit">
+                                    <span>PANCARKAN TRANSMISI SEKARANG 📡</span>
+                                </button>
+                            </form>
+
+                            <div id="transmission-result" class="transmission-alert"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER KOSMIK MODERN -->
+    <footer class="cosmic-footer">
+        <div class="container footer-grid">
+            <div class="footer-left">
+                <span class="footer-brand-title">🪐 NAUFAL // ODYSSEY</span>
+                <p>Mengeksplorasi batas kemampuan web engineering dari bumi hingga galaksi digital.</p>
+            </div>
+            <div class="footer-status-chip">
+                <span class="ping-dot"></span>
+                <span>STATUS SISTEM: 100% EFISIEN</span>
+            </div>
+            <div class="footer-sub">
+                <p>&copy; 2026 Mochammad Naufal Az-Zauhari. Siswa Rekayasa Perangkat Lunak - SMK Negeri 1 Pasuruan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP DETAIL PROJEK -->
+    <div id="project-modal" class="modal-backdrop">
+        <div class="modal-card">
+            <button class="modal-x" id="modal-close">&times;</button>
+            <div class="modal-badge-row">
+                <span id="modal-tag" class="tag-code">SEKTOR 01</span>
+            </div>
+            <h3 id="modal-title" class="modal-headline">Judul Projek</h3>
+            <p id="modal-desc" class="modal-paragraph">Deskripsi projek...</p>
+            <div class="modal-stack-box">
+                <span class="stack-label">Teknologi Terpasang:</span>
+                <div id="modal-tech-list" class="stack-pills"></div>
+            </div>
+            <button class="btn-stellar btn-modal-done" id="btn-modal-ok">Tutup Log Misi</button>
+        </div>
+    </div>
+
+    <!-- SCRIPT JAVASCRIPT ENGINE -->
+    <script src="script.js"></script>
+</body>
+</html>
